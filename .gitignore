@@ -1,0 +1,14 @@
+# Build results
+[Bb]in/
+[Oo]bj/
+
+# # Visual Studio
+# .vscode/
+.vs/
+
+# Coverage
+TestResults/
+coveragereport/
+
+# Logging
+Logs/
