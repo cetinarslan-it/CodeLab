@@ -9,6 +9,7 @@ public class Insurance
     public string? Name { get; set; }
     public int Value { get; set; }
     public int? ParentId { get; set; }
+    public int Depth { get; set; } = 0;
     [JsonIgnore]
     public virtual Insurance? Parent { get; set; }
     [JsonIgnore]

@@ -133,12 +133,20 @@ public class UnitTests : IClassFixture<WebApplicationFactory<Program>>, IDisposa
     }
 
     [Theory]
-    [InlineData(3, 2, new [] { 140000, 110100, 100100 })]
     [InlineData(1, 3, new [] { 140000 })]
-    [InlineData(2, 2, new [] { 140000, 110100 })]
     [InlineData(6, 2, new [] { 140000, 110100, 100100, 60000, 50000, 50000 })]
-    [InlineData(4, 6, new [] { 140000, 110100, 100100, 60000 })]
-  
+
+    [InlineData(3, 0, new [] { 100000, 50000, 50000 })]
+    [InlineData(5, 0, new [] { 100000, 50000, 50000, 40000, 30000})]
+    [InlineData(9, 0, new [] { 100000, 50000, 50000, 40000, 30000, 20000, 10000, 10000, 100})]
+    [InlineData(1, 1, new [] { 140000})]
+    [InlineData(9, 1, new [] { 140000, 110000, 100100, 50000, 50000, 50000, 30000, 30000, 100})]    
+    [InlineData(9, 2, new [] { 140000, 110100, 100100, 60000, 50000, 50000, 50000, 30000, 100})]
+    [InlineData(9, 3, new [] { 140000, 110100, 100100, 60000, 50000, 50000, 50000, 30000, 100})]
+    [InlineData(3, 2, new [] { 140000, 110100, 100100 })]
+    [InlineData(2, 2, new [] { 140000, 110100 })]
+    [InlineData(4, 3, new [] { 140000, 110100, 100100, 60000 })]
+   
     public async Task When_I_request_insurances_containing_highest_value_with_children_all_combined_I_expect_to_get_correct_values(int maxCount, int maxDepth, int[] expectedValues)
     {
         // Arrange
